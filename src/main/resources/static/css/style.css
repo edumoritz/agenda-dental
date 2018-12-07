@@ -79,7 +79,7 @@ body {
 }
 
 .sidebar.sidebar-open {
-    width: 300px;
+    width: 200px;
 }
 
 /*
@@ -87,7 +87,7 @@ body {
  */
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
 	color: #fff;
-	background-color: #1e94d2;
+	background-color: #9675ce;
 }
 
 /*
