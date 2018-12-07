@@ -1,10 +1,16 @@
+
 $(document)
-		.ready(
+		.ready(				
 				function() {
 					var date = new Date();
 					var d = date.getDate();
 					var m = date.getMonth();
 					var y = date.getFullYear();
+					
+					//Clear Modal
+					$('#myModal').on('hidden.bs.modal', function() {
+						$(this).find('input:text').val('');
+					});
 
 					/*
 					 * className colors
@@ -82,8 +88,11 @@ $(document)
 										allDaySlot : false,
 										selectHelper : true,
 										select : function(start, end, allDay) {
-											var title = prompt('Event Title:');
+											$("#myModal").modal();
+											var title = $("#myInput").val();//prompt('Event Title:');
+											console.log(title);
 											if (title) {
+												$('#myModal').modal('hide');
 												calendar.fullCalendar(
 														'renderEvent', {
 															title : title,
@@ -94,7 +103,8 @@ $(document)
 																// event "stick"
 												);
 											}
-											calendar.fullCalendar('unselect');
+											calendar.fullCalendar('unselect');										
+																						
 										},
 										droppable : true, // this allows
 															// things to be
