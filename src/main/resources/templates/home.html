@@ -1,139 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns="http://www.w3.org/1999/xhtml">
+<html layout:decorate="~{layout}">
 <head>
-<title>Agenda Dental</title>
 <meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<link rel="icon" href="/image/favicon.png" />
-
-<!-- Bootstrap core CSS -->
-<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
-	rel="stylesheet" />
-<link
-	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
-	rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="/css/style.css" rel="stylesheet" />
-<link rel="stylesheet" href="/css/agenda.css" />
 </head>
 <body>
-	<header>
-		<nav
-			class="navbar navbar-inverse navbar navbar-dark bg-dark fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="btn btn-dark navbar-toggle pull-left">
-						<i class="oi oi-menu"></i>
-					</button>
-					<a class="navbar-brand " href="#">Agenda Dental</a>
-				</div>
-			</div>
-		</nav>
-	</header>
 
-	<div class="layout-main">
+	<section class="layout-content" layout:fragment="corpo">
 
-		<aside>
-			<nav class="sidebar sidebar-open">
-				<ul class="nav nav-pills">
-					<li class="nav-item"><a class="nav-link " href="/"> <i
-							class="oi oi-home"></i> <span>Home</span>
-					</a></li>
-				</ul>
+		<div id='wrap'>
 
-				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active">Clientes</span></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/clientes/cadastrar"> <i class="oi oi-plus"></i> <span>Cadastrar</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/clientes/listar"> <i class="oi oi-spreadsheet"></i> <span>Listar
-						</span>
-					</a></li>
-				</ul>
+			<div id='calendar'></div>
 
-			</nav>
-		</aside>
+			<div style='clear: both'></div>
+		</div>
 
-		<section class="layout-content">
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
 
-			<nav class="navbar navbar-expand-md bg-light">
-				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active"><i class="oi oi-caret-right"></i>
-							<span>Home</span></li>
-					</ul>
-				</div>
-			</nav>
-
-			<div id='wrap'>
-
-				<div id='calendar'></div>
-
-				<div style='clear: both'></div>
-			</div>
-
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title">Modal Header</h4>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Modal Header</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<form id="formulario">
 						<div class="modal-body">
-							<p>Event Title: </p>
-							<input class="form-control" id="myInput" />
+							<p id="texto"></p>
+							<input type="text" class="form-control" id="myInput" />
 						</div>
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary btnsave">Save
+							<button type="submit" class="btn btn-primary">Save
 								changes</button>
+
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
 
 						</div>
-					</div>
-
+					</form>
 				</div>
+
 			</div>
-
-		</section>
-
-	</div>
-	<footer class="layout-footer">
-		<div class="container">
-			<span class="footer-copy">&copy; 2019 EMoritz. Todos os
-				direitos reservados.</span>
 		</div>
-	</footer>
 
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="/webjars/jquery/jquery.min.js"></script>
-	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/agenda.js"></script>
-	<script type="text/javascript" src="/js/agendatwo.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$('[data-toggle="popover"]').popover();
-		});
+	</section>
 
-		$(document).ready(function() {
-			$(".navbar-toggle").click(function() {
-				$(".sidebar").toggleClass("sidebar-open");
-			})
-		});
-	</script>
 </body>
 </html>

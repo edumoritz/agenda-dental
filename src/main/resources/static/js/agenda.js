@@ -89,10 +89,10 @@ $(document)
 										selectHelper : true,
 										select : function(start, end, allDay) {
 											$("#myModal").modal();
-											var title = $("#myInput").val();//prompt('Event Title:');
+											var title = document.getElementById('myInput').value;
+											//var title = //prompt('Event Title:');
 											console.log(title);
 											if (title) {
-												$('#myModal').modal('hide');
 												calendar.fullCalendar(
 														'renderEvent', {
 															title : title,
@@ -106,7 +106,7 @@ $(document)
 											calendar.fullCalendar('unselect');										
 																						
 										},
-										droppable : true, // this allows
+										droppable : true, // this allowss
 															// things to be
 															// dropped onto the
 															// calendar !!!

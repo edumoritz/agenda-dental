@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<section class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Cadastrar Pacientes</span></li>
+				</ul>
+				<a class="btn btn-primary btn-md" href="/pacientes/listar"
+					role="button"> <span class="oi oi-spreadsheet" title="Listar"
+					aria-hidden="true"></span> <span>Listar Pacientes</span>
+				</a>
+			</div>
+		</nav>
+
+		<div class="container" id="cadastro">
+			<form action="/pacientes/salvar" method="POST">
+
+				<div class="form-row">
+
+					<div class="inner-addon left-addon form-group col-md-6">
+						<i class="material-icons styleicon">face</i> <input type="text"
+							class="form-control" placeholder="Nome" autofocus="autofocus" />
+					</div>
+
+					<div class="inner-addon left-addon form-group col-md-6">
+						<i class="material-icons styleicon">face</i> <input type="text"
+							class="form-control" placeholder="Sobrenome"
+							autofocus="autofocus" />
+					</div>
+
+					<div class="inner-addon left-addon form-group col-md-6">
+						<i class="material-icons styleicon">alternate_email</i> <input
+							type="text" class="form-control" placeholder="E-mail"
+							autofocus="autofocus" />
+					</div>
+
+					<div class="input-group mb-3 col-md-6">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Sexo</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01">
+							<option selected>Escolha...</option>
+							<option value="1">Masculino</option>
+							<option value="2">Feminino</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<label for="nascimento">Data de Nascimento</label>
+						<div class="inner-addon left-addon">
+							<i class="material-icons styleicon"> date_range </i><input
+								type="date" class="form-control" id="dataNascimento"
+								name="dataNascimento" value="" />
+							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+
+
+					<div class="form-group col-md-4">
+						<label for="nascimento">Data de Entrada</label>
+						<div class="inner-addon left-addon">
+							<i class="material-icons styleicon"> date_range </i><input
+								type="date" class="form-control" id="dataEntrada"
+								name="dataEntrada" value="" />
+							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+
+					<div class="form-group col-md-4">
+						<label for="nascimento">Data de Saída</label>
+						<div class="inner-addon left-addon">
+							<i class="material-icons styleicon"> date_range </i><input
+								type="date" class="form-control" id="dataSaida" name="dataSaida"
+								value="" />
+							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="form-row">
+					<div class="form-group inner-addon left-addon col-md-6">
+						<i class="material-icons styleicon"> add_location </i> <input
+							type="text" class="form-control" id="cidade"
+							name="endereco.cidade" placeholder="Cidade" value="" />
+						<div class="invalid-feedback"></div>
+					</div>
+					<div class="form-group inner-addon left-addon col-md-6">
+						<i class="material-icons styleicon"> streetview </i> <input
+							type="text" class="form-control" id="logradouro"
+							placeholder="logradouro" name="endereco.logradouro" value="" />
+						<div class="invalid-feedback"></div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group inner-addon left-addon col-md-6">
+						<i class="material-icons styleicon"> streetview </i> <input
+							type="text" class="form-control" id="numero"
+							name="endereco.numero" placeholder="Número" value="" />
+						<div class="invalid-feedback"></div>
+					</div>
+					<div class="form-group inner-addon left-addon col-md-6">
+						<i class="material-icons styleicon"> description </i> <input
+							type="text" class="form-control" id="complemento"
+							name="endereco.complemento"
+							placeholder="Complemento, Exp: fundos, casa, AP. 102, .."
+							value="" />
+						<div class="invalid-feedback"></div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group inner-addon left-addon col-md-6">
+						<i class="material-icons styleicon">add_location</i> <input
+							type="text" class="form-control" id="bairro"
+							name="endereco.bairro" placeholder="Bairro" value="" />
+						<div class="invalid-feedback"></div>
+					</div>
+					<div class="form-group inner-addon left-addon col-md-4">
+						<select id="uf" class="form-control" name="endereco.uf">
+							<option value="">Selecione UF...</option>
+							<option value="AC">AC</option>
+							<option value="AL">AL</option>
+							<option value="AM">AM</option>
+							<option value="BA">BA</option>
+							<option value="CE">CE</option>
+							<option value="DF">DF</option>
+							<option value="ES">ES</option>
+							<option value="GO">GO</option>
+							<option value="MA">MA</option>
+							<option value="MT">MT</option>
+							<option value="MS">MS</option>
+							<option value="MG">MG</option>
+							<option value="PA">PA</option>
+							<option value="PB">PB</option>
+							<option value="PR">PR</option>
+							<option value="PE">PE</option>
+							<option value="PI">PI</option>
+							<option value="RJ">RJ</option>
+							<option value="RN">RN</option>
+							<option value="RS">RS</option>
+							<option value="RO">RO</option>
+							<option value="RR">RR</option>
+							<option value="SC">SC</option>
+							<option value="SP">SP</option>
+							<option value="SE">SE</option>
+							<option value="TO">TO</option>
+						</select>
+						<div class="invalid-feedback"></div>
+					</div>
+					<div class="form-group inner-addon left-addon col-md-2">
+						<i class="material-icons styleicon"> email </i> <input type="text"
+							class="form-control" id="cep" data-mask="00000-000"
+							name="endereco.cep" value="" placeholder="CEP" />
+						<div class="invalid-feedback"></div>
+					</div>
+				</div>
+
+
+				<div class="form-row">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Comentário</span>
+						</div>
+						<textarea class="form-control" aria-label="With textarea"></textarea>
+					</div>
+				</div>
+
+				<input type="hidden" id="id" name="id" value="" />
+
+				<div class="form-group row mt-3" align="center">
+					<div class="col-sm-10">
+						<button type="reset" class="btn btn-outline-secondary btn-lg" value="Reset">Reset</button>
+						<button type="submit" class="btn btn-outline-primary btn-lg">Salvar</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</section>
+
+</body>
+</html>
