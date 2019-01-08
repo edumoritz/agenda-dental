@@ -1,4 +1,4 @@
-package com.agendadental.web.controller;
+package com.agendadental.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
