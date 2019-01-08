@@ -20,33 +20,33 @@
 		</nav>
 
 		<div class="container" id="cadastro">
-			<form action="/pacientes/salvar" method="POST">
+			<form th:action="@{/pacientes/salvar}" th:object="${paciente}" method="POST">
 
 				<div class="form-row">
 
 					<div class="inner-addon left-addon form-group col-md-6">
 						<i class="material-icons styleicon">face</i> <input type="text"
-							class="form-control" placeholder="Nome" autofocus="autofocus" />
+							class="form-control" placeholder="Nome" id="nome" autofocus="autofocus" th:field="*{nome}" />
 					</div>
 
 					<div class="inner-addon left-addon form-group col-md-6">
 						<i class="material-icons styleicon">face</i> <input type="text"
-							class="form-control" placeholder="Sobrenome"
+							class="form-control" placeholder="Sobrenome" id="sobrenome" th:field="*{sobrenome}"
 							autofocus="autofocus" />
 					</div>
 
 					<div class="inner-addon left-addon form-group col-md-6">
 						<i class="material-icons styleicon">alternate_email</i> <input
-							type="text" class="form-control" placeholder="E-mail"
+							type="text" class="form-control" placeholder="E-mail" id="email" th:field="*{email}"
 							autofocus="autofocus" />
 					</div>
 
 					<div class="input-group mb-3 col-md-6">
 						<div class="input-group-prepend">
-							<label class="input-group-text" for="inputGroupSelect01">Sexo</label>
+							<label class="input-group-text" for="sexo">Sexo</label>
 						</div>
-						<select class="custom-select" id="inputGroupSelect01">
-							<option selected>Escolha...</option>
+						<select class="custom-select" id="sexo" th:field="*{sexo}">
+							<option selected value="">Escolha...</option>
 							<option value="1">Masculino</option>
 							<option value="2">Feminino</option>
 						</select>
@@ -59,29 +59,28 @@
 					<div class="form-group col-md-3">
 						<div class="inner-addon left-addon">
 							<i class="material-icons styleicon"> date_range </i><input
-								type="date" class="form-control" id="dataNascimento"
-								name="dataNascimento" data-toggle="tooltip" data-placement="bottom" 
-								title="Data de Nascimento" value="" />
+								type="date" class="form-control" id="dataNascimento" data-toggle="tooltip" data-placement="bottom" 
+								title="Data de Nascimento" th:field="*{data_nasc}" />
 							<div class="invalid-feedback"></div>
 						</div>
 					</div>
 					
 					<div class="inner-addon left-addon form-group col-md-3">
 						<i class="material-icons styleicon">call</i> <input
-							type="number" class="form-control" placeholder="(00)00000-0000"
-							autofocus="autofocus" />
+							type="number" class="form-control" placeholder="(00)00000-0000" 
+							autofocus="autofocus" id="telefone1" th:field="*{telefones}" />
 					</div>
 	
 					<div class="inner-addon left-addon form-group col-md-3">
 						<i class="material-icons styleicon">stay_current_portrait</i> <input
-							type="number" class="form-control" placeholder="(00)00000-0000"
-							autofocus="autofocus" />
+							type="number" class="form-control" placeholder="(00)00000-0000" 
+							autofocus="autofocus" id="telefone2" th:field="*{telefones}" />
 					</div>
 	
 					<div class="inner-addon left-addon form-group col-md-3">
 						<i class="material-icons styleicon">call</i> <input
-							type="number" class="form-control" placeholder="(00)00000-0000"
-							autofocus="autofocus" />
+							type="number" class="form-control" placeholder="(00)00000-0000" 
+							autofocus="autofocus" id="telefone3" th:field="*{telefones}" />
 					</div>					
 					
 				</div>
@@ -89,14 +88,13 @@
 				<div class="form-row">
 					<div class="form-group inner-addon left-addon col-md-6">
 						<i class="material-icons styleicon"> add_location </i> <input
-							type="text" class="form-control" id="cidade"
-							name="endereco.cidade" placeholder="Cidade" value="" />
+							type="text" class="form-control" id="cidade" placeholder="Cidade" th:field="*{endereco.cidade}" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group inner-addon left-addon col-md-6">
 						<i class="material-icons styleicon"> streetview </i> <input
 							type="text" class="form-control" id="logradouro"
-							placeholder="logradouro" name="endereco.logradouro" value="" />
+							placeholder="logradouro" th:field="*{endereco.logradouro}" />
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
@@ -104,15 +102,14 @@
 					<div class="form-group inner-addon left-addon col-md-6">
 						<i class="material-icons styleicon"> streetview </i> <input
 							type="text" class="form-control" id="numero"
-							name="endereco.numero" placeholder="Número" value="" />
+							placeholder="Número" th:field="*{endereco.numero}" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group inner-addon left-addon col-md-6">
 						<i class="material-icons styleicon"> description </i> <input
 							type="text" class="form-control" id="complemento"
-							name="endereco.complemento"
 							placeholder="Complemento, Exp: fundos, casa, AP. 102, .."
-							value="" />
+							th:field="*{endereco.complemento}" />
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
@@ -120,45 +117,20 @@
 					<div class="form-group inner-addon left-addon col-md-6">
 						<i class="material-icons styleicon">add_location</i> <input
 							type="text" class="form-control" id="bairro"
-							name="endereco.bairro" placeholder="Bairro" value="" />
+							placeholder="Bairro" th:field="*{endereco.bairro}" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group inner-addon left-addon col-md-4">
-						<select id="uf" class="form-control" name="endereco.uf">
-							<option value="">Selecione UF...</option>
-							<option value="AC">AC</option>
-							<option value="AL">AL</option>
-							<option value="AM">AM</option>
-							<option value="BA">BA</option>
-							<option value="CE">CE</option>
-							<option value="DF">DF</option>
-							<option value="ES">ES</option>
-							<option value="GO">GO</option>
-							<option value="MA">MA</option>
-							<option value="MT">MT</option>
-							<option value="MS">MS</option>
-							<option value="MG">MG</option>
-							<option value="PA">PA</option>
-							<option value="PB">PB</option>
-							<option value="PR">PR</option>
-							<option value="PE">PE</option>
-							<option value="PI">PI</option>
-							<option value="RJ">RJ</option>
-							<option value="RN">RN</option>
-							<option value="RS">RS</option>
-							<option value="RO">RO</option>
-							<option value="RR">RR</option>
-							<option value="SC">SC</option>
-							<option value="SP">SP</option>
-							<option value="SE">SE</option>
-							<option value="TO">TO</option>
+						<select id="uf" class="form-control" th:field="*{endereco.uf}">
+							<option value="">Selecione...</option>
+							<option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf.sigla}"></option>							
 						</select>
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group inner-addon left-addon col-md-2">
 						<i class="material-icons styleicon"> email </i> <input type="text"
 							class="form-control" id="cep" data-mask="00000-000"
-							name="endereco.cep" value="" placeholder="CEP" />
+							th:field="*{endereco.cep}" placeholder="CEP" />
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>
@@ -169,7 +141,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text">Comentário</span>
 						</div>
-						<textarea class="form-control" aria-label="With textarea"></textarea>
+						<textarea class="form-control" id="comentario" th:field="*{comentario}" aria-label="With textarea"></textarea>
 					</div>
 				</div>
 

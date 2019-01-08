@@ -18,6 +18,7 @@ public class Endereco extends AbstractEntity<Long> {
 	private UF uf;	
 	@Column(nullable = false, length = 9)
 	private String cep;	
+	private String complemento;
 	private Integer numero;
 	
 
@@ -67,6 +68,14 @@ public class Endereco extends AbstractEntity<Long> {
 
 	public void setNumero(Integer numero) {
 		this.numero = numero;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 	
 	
