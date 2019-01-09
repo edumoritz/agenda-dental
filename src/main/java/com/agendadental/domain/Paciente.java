@@ -5,37 +5,39 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "PACIENTES")
 public class Paciente extends AbstractEntity<Long>{
 	
-	@Column(name = "nome", nullable = false, unique = true)
+	@Column(name = "nome", nullable = false)
 	private String nome;
-	@Column(name = "sobrenome", nullable = false, unique = true)
+	@Column(name = "sobrenome", nullable = false)
 	private String sobrenome;
 	@Column(name = "email", nullable = true, unique = true, length = 100)
 	private String email;	
 	@Column(name = "sexo", nullable = false, length = 20)
 	private String sexo;
+	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_nasc", nullable = false, columnDefinition = "DATE")
 	private LocalDate data_nasc;
 	@Column(name = "comentario")
 	private String comentario;
+	@Column(name = "telefone_1", unique = true)
+	private String telefone_1;
+	@Column(name = "telefone_2", unique = true)
+	private String telefone_2;
+	@Column(name = "telefone_3", unique = true)
+	private String telefone_3;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_endereco_fk")
 	private Endereco endereco;
 	
-	@OneToMany(mappedBy = "paciente")
-	private List<Telefone> telefones;
-	
-	public List<Telefone> getTelefones() {
-		return telefones;
-	}
-	public void setTelefones(List<Telefone> telefones) {
-		this.telefones = telefones;
-	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -77,6 +79,24 @@ public class Paciente extends AbstractEntity<Long>{
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+	public String getTelefone_1() {
+		return telefone_1;
+	}
+	public void setTelefone_1(String telefone_1) {
+		this.telefone_1 = telefone_1;
+	}
+	public String getTelefone_2() {
+		return telefone_2;
+	}
+	public void setTelefone_2(String telefone_2) {
+		this.telefone_2 = telefone_2;
+	}
+	public String getTelefone_3() {
+		return telefone_3;
+	}
+	public void setTelefone_3(String telefone_3) {
+		this.telefone_3 = telefone_3;
 	}
 	
 	
