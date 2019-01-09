@@ -17,9 +17,10 @@ public class Endereco extends AbstractEntity<Long> {
 	@Enumerated(EnumType.STRING)
 	private UF uf;	
 	@Column(nullable = false, length = 9)
-	private String cep;	
-	private String complemento;
+	private String cep;		
+	@Column(nullable = false, length = 5)
 	private Integer numero;
+	private String complemento;
 	
 
 	public String getLogradouro() {
