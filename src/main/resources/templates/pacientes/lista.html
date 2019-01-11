@@ -54,10 +54,10 @@
 								<button type="button" class="btn btn-secondary btn-sm"
 									data-container="body" data-toggle="popover" title="Telefones"
 									th:attr="data-content=${#strings.concat(
-										'| ', '',
-										p.telefone_1, ' | ',
-										p.telefone_2, ' | ',
-										p.telefone_3, ' | ',
+										'<h6>',
+										p.telefone_1, '</h6> <h6> ',
+										p.telefone_2, '</h6> <h6>',
+										p.telefone_3, '</h6> ',
 										)}">
 										<i class="oi oi-eye"></i>
 								</button>
@@ -66,13 +66,14 @@
 								<button type="button" class="btn btn-secondary btn-sm"
 									data-container="body" data-toggle="popover" title="Endereco"
 									th:attr="data-content=${#strings.concat(
+										'<h6>',
 										p.endereco.logradouro, ',  ',
 										p.endereco.numero, ' ',
 										p.endereco.complemento, ' - ',
 										p.endereco.bairro, ', ',
 										p.endereco.cidade, ' - ',
 										p.endereco.uf.sigla, ' - ',
-										p.endereco.cep
+										p.endereco.cep, '</h6>'
 										)}">
 										<i class="oi oi-eye"></i>
 								</button>
