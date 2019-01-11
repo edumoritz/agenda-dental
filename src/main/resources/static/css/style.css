@@ -31,7 +31,6 @@ body {
 	width: 100%;
 	padding-top: 20px;
 }
-
 /*
  * Sidebar
  */
@@ -88,7 +87,7 @@ body {
 .navbar {
 	background-color: #563d7c;
 }
-.navbar .btn {
+.navbar .btnnav {
 	background-color: #563d7c;
 	margin-right: 10px;	
 }

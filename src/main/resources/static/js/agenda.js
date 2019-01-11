@@ -8,9 +8,10 @@ $(document)
 					var y = date.getFullYear();
 					
 					//Clear Modal
+					/*
 					$('#myModal').on('hidden.bs.modal', function() {
 						$(this).find('input:text').val('');
-					});
+					});*/
 
 					/*
 					 * className colors
@@ -88,9 +89,9 @@ $(document)
 										allDaySlot : false,
 										selectHelper : true,
 										select : function(start, end, allDay) {
-											$("#myModal").modal();
-											var title = document.getElementById('myInput').value;
-											//var title = //prompt('Event Title:');
+											//$("#myModal").modal();
+											//var title = document.getElementById('myInput').value;
+											var title = prompt('Event Title:');
 											console.log(title);
 											if (title) {
 												calendar.fullCalendar(
