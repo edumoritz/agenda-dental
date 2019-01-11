@@ -19,8 +19,6 @@ public class Paciente extends AbstractEntity<Long>{
 	private String sobrenome;
 	@Column(name = "email", nullable = true, unique = true, length = 100)
 	private String email;	
-	@Column(name = "sexo", nullable = false, length = 20)
-	private String sexo;
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_nasc", nullable = false, columnDefinition = "DATE")
 	private LocalDate data_nasc;
@@ -56,12 +54,6 @@ public class Paciente extends AbstractEntity<Long>{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSexo() {
-		return sexo;
-	}
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
 	public String getComentario() {
 		return comentario;
 	}
@@ -84,18 +76,27 @@ public class Paciente extends AbstractEntity<Long>{
 		return telefone_1;
 	}
 	public void setTelefone_1(String telefone_1) {
+		if(telefone_1.equals("")) {
+			telefone_1 = null;
+		}
 		this.telefone_1 = telefone_1;
 	}
-	public String getTelefone_2() {
+	public String getTelefone_2() {		
 		return telefone_2;
 	}
 	public void setTelefone_2(String telefone_2) {
+		if(telefone_2.equals("")) {
+			telefone_2 = null;
+		}
 		this.telefone_2 = telefone_2;
 	}
 	public String getTelefone_3() {
 		return telefone_3;
 	}
 	public void setTelefone_3(String telefone_3) {
+		if(telefone_3.equals("")) {
+			telefone_3 = null;
+		}
 		this.telefone_3 = telefone_3;
 	}
 	

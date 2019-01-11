@@ -44,43 +44,32 @@
 							autofocus="autofocus" />
 					</div>
 
-					<div class="input-group mb-3 col-md-6">
-						<div class="input-group-prepend">
-							<label class="input-group-text" for="sexo">Sexo</label>
-						</div>
-						<select class="custom-select" id="sexo" th:field="*{sexo}">
-							<option selected value="">Escolha...</option>
-							<option value="Masculino">Masculino</option>
-							<option value="Feminino">Feminino</option>
-						</select>
-					</div>					
-					
-				</div>
-
-				<div class="form-row">
-				
-					<div class="form-group col-md-3">
+					<div class="form-group col-md-6">
 						<div class="inner-addon left-addon">
 							<i class="material-icons styleicon"> date_range </i><input
 								type="date" class="form-control" id="dataNascimento" data-toggle="tooltip" data-placement="bottom" 
 								title="Data de Nascimento" th:field="*{data_nasc}" />
 							<div class="invalid-feedback"></div>
 						</div>
-					</div>
+					</div>					
 					
-					<div class="inner-addon left-addon form-group col-md-3">
+				</div>
+
+				<div class="form-row">	
+					
+					<div class="inner-addon left-addon form-group col-md-4">
 						<i class="material-icons styleicon">call</i> <input
 							type="number" class="form-control" placeholder="(00)00000-0000" 
 							autofocus="autofocus" id="telefone1" th:field="*{telefone_1}" />
 					</div>
 	
-					<div class="inner-addon left-addon form-group col-md-3">
+					<div class="inner-addon left-addon form-group col-md-4">
 						<i class="material-icons styleicon">stay_current_portrait</i> <input
 							type="number" class="form-control" placeholder="(00)00000-0000" 
 							autofocus="autofocus" id="telefone2" th:field="*{telefone_2}" />
 					</div>
 	
-					<div class="inner-addon left-addon form-group col-md-3">
+					<div class="inner-addon left-addon form-group col-md-4">
 						<i class="material-icons styleicon">call</i> <input
 							type="number" class="form-control" placeholder="(00)00000-0000" 
 							autofocus="autofocus" id="telefone3" th:field="*{telefone_3}" />
