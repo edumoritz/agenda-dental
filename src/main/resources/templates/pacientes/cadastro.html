@@ -20,67 +20,74 @@
 		</nav>
 
 		<div class="container mt-3" id="cadastro">
-		
+
 			<div th:replace="fragments/alert"></div>
-			
-			<form th:action="@{/pacientes/salvar}" th:object="${paciente}" method="POST">
+
+			<form
+				th:action="${paciente.id == null} ? @{/pacientes/salvar} : @{/pacientes/editar}"
+				th:object="${paciente}" method="POST">
 
 				<div class="form-row">
 
-					<div class="inner-addon left-addon form-group col-md-6">					
+					<div class="inner-addon left-addon form-group col-md-6">
 						<i class="material-icons styleicon">face</i> <input type="text"
-							class="form-control" placeholder="Nome" id="nome" autofocus="autofocus" th:field="*{nome}" />
+							class="form-control" placeholder="Nome" id="nome"
+							autofocus="autofocus" th:field="*{nome}" />
 					</div>
 
 					<div class="inner-addon left-addon form-group col-md-6">
 						<i class="material-icons styleicon">face</i> <input type="text"
-							class="form-control" placeholder="Sobrenome" id="sobrenome" th:field="*{sobrenome}"
-							autofocus="autofocus" />
+							class="form-control" placeholder="Sobrenome" id="sobrenome"
+							th:field="*{sobrenome}" autofocus="autofocus" />
 					</div>
 
 					<div class="inner-addon left-addon form-group col-md-6">
-						<i class="material-icons styleicon">email</i> <input
-							type="text" class="form-control" placeholder="E-mail" id="email" th:field="*{email}"
-							autofocus="autofocus" />
+						<i class="material-icons styleicon">email</i> <input type="text"
+							class="form-control" placeholder="E-mail" id="email"
+							th:field="*{email}" autofocus="autofocus" />
 					</div>
 
 					<div class="form-group col-md-6">
 						<div class="inner-addon left-addon">
 							<i class="material-icons styleicon"> date_range </i><input
-								type="date" class="form-control" id="dataNascimento" data-toggle="tooltip" data-placement="bottom" 
+								type="date" class="form-control" id="dataNascimento"
+								data-toggle="tooltip" data-placement="bottom"
 								title="Data de Nascimento" th:field="*{data_nasc}" />
 							<div class="invalid-feedback"></div>
 						</div>
-					</div>					
-					
+					</div>
+
 				</div>
 
-				<div class="form-row">	
-					
+				<div class="form-row">
+
 					<div class="inner-addon left-addon form-group col-md-4">
-						<i class="material-icons styleicon">call</i> <input
-							type="text" class="form-control" placeholder="(00) 00000-0000" data-mask="(00) 00000-0000"
-							autofocus="autofocus" id="telefone1" th:field="*{telefone_1}" />
+						<i class="material-icons styleicon">call</i> <input type="text"
+							class="form-control" placeholder="(00) 0000-0000"
+							data-mask="(00) 0000-0000" autofocus="autofocus" id="telefone1"
+							th:field="*{telefone_1}" />
 					</div>
-	
+
 					<div class="inner-addon left-addon form-group col-md-4">
 						<i class="material-icons styleicon">stay_current_portrait</i> <input
-							type="text" class="form-control" placeholder="(00) 00000-0000" data-mask="(00) 00000-0000"
-							autofocus="autofocus" id="telefone2" th:field="*{telefone_2}" />
+							type="text" class="form-control" placeholder="(00) 00000-0000"
+							data-mask="(00) 00000-0000" autofocus="autofocus" id="telefone2"
+							th:field="*{telefone_2}" />
 					</div>
-	
+
 					<div class="inner-addon left-addon form-group col-md-4">
-						<i class="material-icons styleicon">call</i> <input
-							type="text" class="form-control" placeholder="(00) 00000-0000" data-mask="(00) 00000-0000" 
+						<i class="material-icons styleicon">call</i> <input type="text"
+							class="form-control" placeholder="Exp: fax, 0800.."
 							autofocus="autofocus" id="telefone3" th:field="*{telefone_3}" />
-					</div>					
-					
+					</div>
+
 				</div>
 
 				<div class="form-row">
 					<div class="form-group inner-addon left-addon col-md-6">
 						<i class="material-icons styleicon"> add_location </i> <input
-							type="text" class="form-control" id="cidade" placeholder="Cidade" th:field="*{endereco.cidade}" />
+							type="text" class="form-control" id="cidade" placeholder="Cidade"
+							th:field="*{endereco.cidade}" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group inner-addon left-addon col-md-6">
@@ -108,14 +115,15 @@
 				<div class="form-row">
 					<div class="form-group inner-addon left-addon col-md-6">
 						<i class="material-icons styleicon">add_location</i> <input
-							type="text" class="form-control" id="bairro"
-							placeholder="Bairro" th:field="*{endereco.bairro}" />
+							type="text" class="form-control" id="bairro" placeholder="Bairro"
+							th:field="*{endereco.bairro}" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<div class="form-group inner-addon left-addon col-md-4">
 						<select id="uf" class="form-control" th:field="*{endereco.uf}">
 							<option value="">Selecione...</option>
-							<option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf.sigla}"></option>							
+							<option th:each="uf : ${ufs}" th:value="${uf}"
+								th:text="${uf.sigla}"></option>
 						</select>
 						<div class="invalid-feedback"></div>
 					</div>
@@ -133,12 +141,13 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text">Comentário</span>
 						</div>
-						<textarea class="form-control" id="comentario" th:field="*{comentario}" aria-label="With textarea"></textarea>
+						<textarea class="form-control" id="comentario"
+							th:field="*{comentario}" aria-label="With textarea"></textarea>
 					</div>
 				</div>
 
-				<input type="hidden" id="id" th:field="*{id}"/>
-				<input type="hidden" id="endereco.id" th:field="*{endereco.id}"/>
+				<input type="hidden" id="id" th:field="*{id}" /> <input
+					type="hidden" id="endereco.id" th:field="*{endereco.id}" />
 
 				<div class="form-group row mt-5">
 					<div class="col-sm-12" align="center">
