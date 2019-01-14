@@ -39,5 +39,10 @@ public class PacienteServiceImpl implements PacienteService {
 	public List<Paciente> buscarTodos() {
 		return dao.findAll();
 	}
+	
+	@Override
+	public List<Paciente> buscarPorNome(String nome) {		
+		return dao.findByNome(nome);
+	}
 
 }

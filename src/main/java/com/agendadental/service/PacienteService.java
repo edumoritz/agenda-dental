@@ -15,4 +15,6 @@ public interface PacienteService {
 	Paciente buscarPorId(Long id);
 	
 	List<Paciente> buscarTodos();
+	
+	List<Paciente> buscarPorNome(String nome);
 }

@@ -15,6 +15,8 @@ public interface PacienteDao {
 	Paciente findById(Long id);
 	
 	List<Paciente> findAll();
+	
+	public List<Paciente> findByNome(String nome);
 
 
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.agendadental.domain.Endereco;
@@ -60,6 +61,12 @@ public class PacientesController {
 		pacienteService.excluir(id);
 		attr.addFlashAttribute("success", "Paciente excluido com sucesso.");
 		return "redirect:/pacientes/listar";
+	}
+	
+	@GetMapping("/buscar/nome")
+	public String getPorNome(@RequestParam("nome") String nome, ModelMap model) {		
+		model.addAttribute("pacientes", pacienteService.buscarPorNome(nome));
+		return "/pacientes/lista";
 	}
 	
 	@ModelAttribute("ufs")
