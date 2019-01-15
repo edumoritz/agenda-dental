@@ -66,6 +66,7 @@
 			document.location.href = url;
 		});
 		
+		//Popper
 		$(function() {
 			$('[data-toggle="popover"]').popover({
 				animation: true,
@@ -76,10 +77,18 @@
 			});
 		});
 
+		//Sidebar
 		$(document).ready(function() {
 			$(".navbar-toggle").click(function() {
 				$(".sidebar").toggleClass("sidebar-open");
 			})
+		});
+		
+		//Alerts
+		$().ready(function() {
+			setTimeout(function () {
+				$('#alert').fadeIn( 300 ).delay( 1500 ).fadeOut( 400 ); 
+			}, 2500); 
 		});
 	</script>
 </body>

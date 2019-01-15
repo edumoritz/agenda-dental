@@ -10,7 +10,7 @@ import com.agendadental.domain.Paciente;
 public class PacienteDaoImpl extends AbstractDao<Paciente, Long> implements PacienteDao {
 
 	public List<Paciente> findByNome(String nome) {		
-		return createQuery("select p from Paciente p where p.nome like concat('%',?1,'%') ", nome);
+		return createQuery("select p from Paciente p where LOWER(p.nome) like concat('%',?1,'%') ", nome.toLowerCase());
 	}
 
 }
