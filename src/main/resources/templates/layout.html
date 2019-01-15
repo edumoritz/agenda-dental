@@ -58,11 +58,20 @@
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	
+		//Buttons
 		var url = '';
 		$('button[id*="btn_"]').click(function() {
 			url = "http://localhost:8000/" + $(this).attr('id').split("_")[1];
 		})
 		$('#ok_confirm').click(function() {
+			document.location.href = url;
+		});		
+		$('#niver_mes').click(function() {
+			url = "http://localhost:8000/pacientes/buscar/niver_mes";
+			document.location.href = url;
+		});
+		$('#niver_dia').click(function() {
+			url = "http://localhost:8000/pacientes/buscar/niver_dia";
 			document.location.href = url;
 		});
 		
@@ -90,6 +99,8 @@
 				$('#alert').fadeIn( 300 ).delay( 1500 ).fadeOut( 400 ); 
 			}, 2500); 
 		});
+		
+		
 	</script>
 </body>
 </html>
