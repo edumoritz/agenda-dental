@@ -18,5 +18,8 @@ public interface PacienteDao {
 	
 	public List<Paciente> findByNome(String nome);
 
-
+	public List<Paciente> findByMes();
+	
+	public List<Paciente> findByDia();
+	
 }

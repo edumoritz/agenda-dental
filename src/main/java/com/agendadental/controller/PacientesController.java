@@ -68,16 +68,14 @@ public class PacientesController {
 	}
 	
 	@GetMapping("/buscar/niver_mes")
-	public String getNiverMes() {	
-		System.out.println("teste");
-		//model.addAttribute("pacientes", pacienteService.buscarPorNome(nome));
+	public String getNiverMes(ModelMap model) {	
+		model.addAttribute("pacientes", pacienteService.buscarPorNiverMes());
 		return "/pacientes/lista";
 	}
 	
 	@GetMapping("/buscar/niver_dia")
-	public String getNiverDia() {	
-		System.out.println("teste");
-		//model.addAttribute("pacientes", pacienteService.buscarPorNome(nome));
+	public String getNiverDia(ModelMap model) {	
+		model.addAttribute("pacientes", pacienteService.buscarPorNiverDia());
 		return "/pacientes/lista";
 	}
 	

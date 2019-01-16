@@ -45,4 +45,14 @@ public class PacienteServiceImpl implements PacienteService {
 		return dao.findByNome(nome);
 	}
 
+	@Override
+	public List<Paciente> buscarPorNiverMes() {
+		return dao.findByMes();
+	}
+
+	@Override
+	public List<Paciente> buscarPorNiverDia() {
+		return dao.findByDia();
+	}
+
 }

@@ -7,9 +7,6 @@
 	</button>
 	<button class="btn btn-primary" type="button" th:id="niver_dia">Aniversariantes do Dia
 	</button>
-	<button class="btn btn-primary" type="button" data-toggle="collapse"
-		data-target="#collapseData" aria-controls="collapseData">Data
-	</button>
 </p>
 <div class="row">
 	<div class="col">
@@ -20,22 +17,6 @@
 					th:action="@{/pacientes/buscar/nome}">
 					<input class="form-control mr-sm-2" type="search"
 						placeholder="nome" aria-label="Search" th:name="nome" />
-					<button class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
-				</form>
-			</nav>
-
-		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col">
-		<div class="collapse" id="collapseData">
-			<nav class="navbar navbar-light bg-light">
-				<form class="form-inline" method="GET"
-					th:action="@{/pacientes/buscar/data}">
-					<input class="form-control mr-sm-2" type="date" aria-label="Search"
-						th:name="data_nasc" /> 
 					<button class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
 				</form>
 			</nav>

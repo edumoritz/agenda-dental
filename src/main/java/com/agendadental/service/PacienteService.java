@@ -17,4 +17,9 @@ public interface PacienteService {
 	List<Paciente> buscarTodos();
 	
 	List<Paciente> buscarPorNome(String nome);
+	
+	List<Paciente> buscarPorNiverMes();
+	
+	List<Paciente> buscarPorNiverDia();
+	
 }
