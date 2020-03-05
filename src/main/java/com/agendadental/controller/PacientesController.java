@@ -1,8 +1,12 @@
 package com.agendadental.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,7 +39,12 @@ public class PacientesController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(Paciente paciente, RedirectAttributes attr) {
+	public String salvar(@Valid Paciente paciente, BindingResult result, RedirectAttributes attr) {
+		
+		if(result.hasErrors()) {
+			return "/pacientes/cadastro";
+		}
+		
 		pacienteService.salvar(paciente);
 		attr.addFlashAttribute("success", "Paciente inserido com sucesso.");
 		return "redirect:/pacientes/cadastrar";
@@ -48,7 +57,12 @@ public class PacientesController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(Paciente paciente, RedirectAttributes attr) {
+	public String editar(@Valid Paciente paciente, BindingResult result, RedirectAttributes attr) {
+		
+		if(result.hasErrors()) {
+			return "/pacientes/cadastro";
+		}
+		
 		pacienteService.editar(paciente);
 		attr.addFlashAttribute("success", "Paciente editado com sucesso.");
 		return "redirect:/pacientes/cadastrar";

@@ -1,25 +1,32 @@
 package com.agendadental.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "ENDERECOS")
 public class Endereco extends AbstractEntity<Long> {
 	
-	@Column(nullable = false)
+	@Column(name = "logradouro")
 	private String logradouro;	
-	@Column(nullable = false)
+	
+	@Column(name = "bairro")
 	private String bairro;	
-	@Column(nullable = false)
+	
+	@Column(name = "cidade")
 	private String cidade;	
-	@Column(nullable = false, length = 2)
+	
+	@Column(name = "uf", length = 2)
 	@Enumerated(EnumType.STRING)
 	private UF uf;	
-	@Column(nullable = false, length = 9)
+	
+	@Column(name = "cep", length = 9)
 	private String cep;		
-	@Column(nullable = false, length = 5)
+	
+	@Column(name = "numero", length = 5)
 	private Integer numero;
+	
 	private String complemento;
 	
 

@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -13,17 +15,27 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 @Table(name = "PACIENTES")
 public class Paciente extends AbstractEntity<Long>{
 	
-	@Column(name = "nome", nullable = false)
+	@NotBlank(message = "Informe um nome.")
+	@Size(min = 3, max = 50, message = "O nome deve ter entre {min} e {max} caracteres.")
+	@Column(name = "nome", nullable = false, length = 50)
 	private String nome;
-	@Column(name = "sobrenome", nullable = false)
+	
+	@NotBlank(message = "Informe um Sobrenome.")
+	@Size(min = 3, max = 50, message = "O sobrenome deve ter entre {min} e {max} caracteres.")
+	@Column(name = "sobrenome", nullable = false, length = 50)
 	private String sobrenome;
-	@Column(name = "email", nullable = true, unique = true, length = 100)
+	
+	@Column(name = "email", unique = true, length = 100)
 	private String email;	
+	
 	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name = "data_nasc", nullable = false, columnDefinition = "DATE")
+	@Column(name = "data_nasc", columnDefinition = "DATE")
 	private LocalDate data_nasc;
-	@Column(name = "comentario")
+
+	@Column(name = "comentario", length = 200)
 	private String comentario;
+	
+	
 	@Column(name = "telefone_1", unique = true)
 	private String telefone_1;
 	@Column(name = "telefone_2", unique = true)
